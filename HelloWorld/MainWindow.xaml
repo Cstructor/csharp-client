@@ -7,24 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
                                 <!--Exercise No.2 Window to be maximized-->
-    <StackPanel>
-
+    
+    <StackPanel>     
         <TextBlock>Enter Name:</TextBlock>
         <TextBox x:Name="uxName" Background="#FFD7ECC3"></TextBox>
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" Background="#FFD7ECC3"></TextBox>
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" Background="#FF11E5F0">Submit
         </Button>
-        <Button>
-            
+        <Button>           
             <StackPanel Orientation="Horizontal">
-                <!--Exercise No.3 - Image, Space, and VerticalAlignment-->
-               
-
+                <!--Exercise No.3 - Image, Space, and VerticalAlignment-->                
                 <Image Source="/images/ic_thumb_up_black_24dp_2x.png" Margin="0,0,20,0" />
                 <TextBlock Text="Thumbs Up" VerticalAlignment="Center" />
             </StackPanel>
-
         </Button>
+        
+        <!--Exercise No.1 Under Basic XAML - Add a CheckBox-->
+        <Button Height="100" Width="100">
+            <CheckBox>Check</CheckBox>
+        </Button>
+        
     </StackPanel>
 </Window>
