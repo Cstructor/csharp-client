@@ -5,5 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="images\ic_thumb_up_black_24dp_2x.png">
+      
+</Resource>
+  </ItemGroup>
 
 </Project>

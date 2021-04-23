@@ -23,6 +23,9 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
+            
+            // Exercise No.1 - This allows your window to be maximized when application runs
+            WindowState = WindowState.Maximized;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
