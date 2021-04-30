@@ -6,8 +6,10 @@ namespace HelloWorld.Models
     {
         private string name = string.Empty;
         private string nameError;
-       
+
+        // Exercise 1 - add a passwordErro for password validation
         private string password = string.Empty;
+        private string passwordError;
 
         public string NameError
         {
@@ -56,6 +58,25 @@ namespace HelloWorld.Models
                 }
             }
         }
+        // Exercise 1 - Need a PasswordError Property
+        public string PasswordError
+        {
+            get
+            {
+                return passwordError;
+            }
+
+            set
+            {
+                if (passwordError != value)
+                {
+                    passwordError = value;
+                    OnPropertyChanged("PasswordError");
+                }
+            }
+        }
+
+
 
         // IDataErrorInfo interface
         public string Error
@@ -77,6 +98,7 @@ namespace HelloWorld.Models
                 {
                     case "Name":
                         {
+                            NameError = "";
                             if (string.IsNullOrEmpty(Name))
                             {
                                 NameError = "Name cannot be empty.";
@@ -85,11 +107,30 @@ namespace HelloWorld.Models
                             {
                                 NameError = "Name cannot be longer than 12 characters.";
                             }
-                            break;
+
+                            return NameError;
                         }
-                }
-                return NameError;
-            }
+                    case "Password": // Exercise 1 - password validation message lable
+                        {
+                            PasswordError = "";
+                            if (string.IsNullOrEmpty(Password))
+                            {
+                                PasswordError = "Password cannot be empty.";
+                            }
+                            if (Password.Length > 12)
+                            {
+                                PasswordError = "Password cannot be longer than 12 characters.";
+                            }
+
+                            return PasswordError;
+
+                        }
+                        
+                } // end of switch statement
+
+                return null;
+
+            } // end of get
         }
 
         // INotifyPropertyChanged interface

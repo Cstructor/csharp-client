@@ -8,19 +8,28 @@
         Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
                                 <!--Exercise No.2 Window to be maximized-->
     
-    <StackPanel>
+    <StackPanel x:Name="uxContainer">
 
         <TextBlock>Enter Name:</TextBlock>
 
         <TextBox x:Name="uxName" 
-        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Background="Beige">
         </TextBox>
-
         <Label x:Name="uxNameError" 
             Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
         
+        <!-- Exercise 1 - databinding, add password validation-->
         <TextBlock>Enter Password:</TextBlock>
-        <TextBox x:Name="uxPassword" Background="#FFD7ECC3"></TextBox>
+        <TextBox x:Name="uxPassword" 
+        Text="{Binding Password, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        </TextBox>
+
+        <Label x:Name="uxPasswordError" 
+            Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
+        
+        <!-- Exercise 2-->
+        <PasswordBox x:Name="uxPasswordBox" PasswordChar="*" Background="Azure"/>
+        
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" Background="#FF11E5F0">Submit
         </Button>
         <Button>           

@@ -25,13 +25,17 @@ namespace HelloWorld
         public MainWindow()
         {
             InitializeComponent();
-            uxName.DataContext = user; // connect or import user data into the window
-            uxNameError.DataContext = user;
+            //uxName.DataContext = user; 
+            //uxNameError.DataContext = user;
+
+            uxContainer.DataContext = user;
+
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Submitting password:" + uxPassword.Text);
+            // for Exercise 2
+            MessageBox.Show("Submitting password:" + uxPasswordBox.Password);
         }
     }
 }
