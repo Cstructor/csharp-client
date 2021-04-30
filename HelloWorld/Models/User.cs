@@ -11,6 +11,12 @@ namespace HelloWorld.Models
         private string password = string.Empty;
         private string passwordError;
 
+        // Add ToString method
+        public override string ToString()
+        {
+            return name;
+        }
+
         public string NameError
         {
             get

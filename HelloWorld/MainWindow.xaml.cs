@@ -35,7 +35,11 @@ namespace HelloWorld
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
             // for Exercise 2
-            MessageBox.Show("Submitting password:" + uxPasswordBox.Password);
+            MessageBox.Show("Submitting password: " + uxPasswordBox.Password);
+            var window = new SecondWindow();
+            Application.Current.MainWindow = window;
+            Close();
+            window.Show();
         }
     }
 }
