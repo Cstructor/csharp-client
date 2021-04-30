@@ -8,9 +8,17 @@
         Title="MainWindow" Height="350" Width="525" WindowState="Maximized">
                                 <!--Exercise No.2 Window to be maximized-->
     
-    <StackPanel>     
+    <StackPanel>
+
         <TextBlock>Enter Name:</TextBlock>
-        <TextBox x:Name="uxName" Background="#FFD7ECC3"></TextBox>
+
+        <TextBox x:Name="uxName" 
+        Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+        </TextBox>
+
+        <Label x:Name="uxNameError" 
+            Content="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></Label>
+        
         <TextBlock>Enter Password:</TextBlock>
         <TextBox x:Name="uxPassword" Background="#FFD7ECC3"></TextBox>
         <Button x:Name="uxSubmit" Click="uxSubmit_Click" Background="#FF11E5F0">Submit

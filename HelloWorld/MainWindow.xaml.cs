@@ -20,12 +20,13 @@ namespace HelloWorld
     /// </summary>
     public partial class MainWindow : Window
     {
+        // add a call to User class
+        private Models.User user = new Models.User();
         public MainWindow()
         {
             InitializeComponent();
-            
-            // Exercise No.1 - This allows your window to be maximized when application runs
-            WindowState = WindowState.Maximized;
+            uxName.DataContext = user; // connect or import user data into the window
+            uxNameError.DataContext = user;
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
