@@ -20,7 +20,19 @@ namespace HelloWorld
         public MenuWindow()
         {
             InitializeComponent();
+            uxContainer.DataContext = this;
         }
+
+        // Exercise 3 under Menu
+        // Note: if this returns false the MenuItem is disabled
+        public bool IsFileNewActive //Note: we bind to this function in xaml
+        {
+            get
+            {
+                return false; // false sets it to disabled
+            }
+        }
+
 
         private void OnNew_Click(object sender, RoutedEventArgs e)
         {

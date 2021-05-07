@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\wpf-menus-new.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.2">
       <PrivateAssets>all</PrivateAssets>
@@ -17,6 +21,7 @@
     <Resource Include="images\ic_thumb_up_black_24dp_2x.png">
       
 </Resource>
+    <Resource Include="images\wpf-menus-new.png" />
   </ItemGroup>
 
 </Project>

@@ -10,16 +10,35 @@
         <CommandBinding Command="New" CanExecute="OnNew_CanExecute" Executed="OnNew_Click" />
     </Window.CommandBindings>
     
-    <StackPanel>
+    <!--Exercise 2 uner Menu - use Window.Context Menu allows 
+    to click anywhere on the window for it to appear-->
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Menu item 1" />
+            <MenuItem Header="Menu item 2" />
+            <Separator />
+            <MenuItem Header="Menu item 3" />
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <StackPanel x:Name="uxContainer">
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem Header="_New" Click="OnNew_Click"/>
+                <!--Add an icon next to New in Menu and 
+                also bind to IsFileNewActive to enable or diable the MenuItem-->
+                <MenuItem Header="_New" Click="OnNew_Click" 
+                          IsEnabled="{Binding IsFileNewActive}">
+                    <MenuItem.Icon>
+                        <Image Source="/images/wpf-menus-new.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem Header="_Open"/>
                 <Separator/>
                 <MenuItem Header="E_xit" Click="OnClose_Click"/>
             </MenuItem>
             <MenuItem Header="_Edit"/>
             <MenuItem Header="_Help"/>
+
         </Menu>
 
         <Button Content="Click Me">
