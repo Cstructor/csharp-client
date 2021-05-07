@@ -1,0 +1,43 @@
+﻿<Window x:Class="HelloWorld.ComboWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld"
+        mc:Ignorable="d"
+        Title="ComboWindow" Height="450" Width="800">
+    <StackPanel>
+        <!--Exercise to use ListBox-->
+        <ListBox x:Name="uxComboBox"
+                DisplayMemberPath="UserName"
+                SelectionChanged="uxComboBox_SelectionChanged" 
+                 Background="Beige" Height="50"/>
+        
+        <!--Modify to add user age into your List-->
+        <Grid x:Name="uxGrid">
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+            
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="User Name:" Background="Azure"/>
+            <TextBox Grid.Row="1" Text="{Binding UserName}"  />
+            
+            <TextBlock Grid.Row="2" Text="Password:" Background="Azure" />
+            <TextBox Grid.Row="3" Text="{Binding UserPassword}"/>
+            
+            <TextBlock Grid.Row="4" Text="Age:" Background="Azure"/>
+            <TextBox Grid.Row="5" Text="{Binding UserAge}"/>
+
+        </Grid>
+
+    </StackPanel>
+</Window>

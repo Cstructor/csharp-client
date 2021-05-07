@@ -10,6 +10,15 @@
     
     <StackPanel x:Name="uxContainer">
 
+        <ListView x:Name="uxList" Background="Beige">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserName}" Header="User Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding UserPassword}" Header="Password" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
         <TextBlock>Enter Name:</TextBlock>
 
         <TextBox x:Name="uxName" 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore; // add this on top
 
 namespace HelloWorld
 {
@@ -27,8 +28,13 @@ namespace HelloWorld
             InitializeComponent();
             //uxName.DataContext = user; 
             //uxNameError.DataContext = user;
-
             uxContainer.DataContext = user;
+
+            // the new code to connect to entity framework - database
+            var sample = new SampleContext();
+            sample.User.Load();
+            var users = sample.User.Local.ToObservableCollection();
+            uxList.ItemsSource = users;
 
         }
 
