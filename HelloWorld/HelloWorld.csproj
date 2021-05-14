@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="images\wpf-menus-new.png" />
+    <None Remove="images\wpf-world.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
       
 </Resource>
     <Resource Include="images\wpf-menus-new.png" />
+    <Resource Include="images\wpf-world.png" />
   </ItemGroup>
 
 </Project>

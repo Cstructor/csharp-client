@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="MenuWindow" Height="450" Width="800">
     <Window.CommandBindings>
-        <CommandBinding Command="New" CanExecute="OnNew_CanExecute" Executed="OnNew_Click" />
+        <CommandBinding Command="New" CanExecute="OnNew_CanExecute" 
+                        Executed="OnNew_Click" />
     </Window.CommandBindings>
-    
+
     <!--Exercise 2 uner Menu - use Window.Context Menu allows 
     to click anywhere on the window for it to appear-->
     <Window.ContextMenu>
@@ -40,6 +41,25 @@
             <MenuItem Header="_Help"/>
 
         </Menu>
+
+        <ToolBarTray>
+            <ToolBar>
+                <Button Command="New" Content="New" Click="OnNew_Click"/>
+                <!--Exercise 1 - Add a close button -->
+                <Button x:Name ="uxClose" Content="Close" Click="uxClose_Click"/>
+                <Button Content="Copy"/>
+                <Button Content="Paste"/>
+            </ToolBar>
+            <ToolBar>
+                <Label>Font size:</Label>
+                <ComboBox>
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">12</ComboBoxItem>
+                    <ComboBoxItem>14</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
 
         <Button Content="Click Me">
             <Button.ContextMenu>

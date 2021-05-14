@@ -1,0 +1,55 @@
+﻿<Window x:Class="HelloWorld.ControlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HelloWorld"
+        mc:Ignorable="d"
+        Title="ControlWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/images/wpf-world.png" Opacity="0.1"/>
+        <!-- Pick any image that you have-->
+    </Window.Background>
+    
+    <StackPanel>
+
+        <CheckBox ToolTip="Click me" Margin ="0,15,0,0" x:Name="uxLocal" Content="Local" 
+                  Checked="uxLocal_Checked" Unchecked="uxLocal_Unchecked">
+        </CheckBox>
+
+        <TextBlock Margin ="0,15,0,0">
+        <Hyperlink  x:Name="uxNavigator" 
+                  NavigateUri="http://www.google.com" 
+                  RequestNavigate="uxNavigator_RequestNavigate">Google.com</Hyperlink>
+
+        <Hyperlink 
+            NavigateUri="http://www.microsoft.com" 
+            RequestNavigate="uxNavigator_RequestNavigate">Microsoft.com</Hyperlink>
+        </TextBlock>
+        <!--Exercise 1 border around radio buttons-->
+        <Border Background="LightCyan" BorderBrush="Gainsboro" BorderThickness="1">
+            <StackPanel>
+            <RadioButton Margin ="0,15,0,0" Content="Option 1" GroupName="one"></RadioButton>
+            <RadioButton Content="Option 2" GroupName="one"></RadioButton>
+            </StackPanel>
+        </Border>
+        
+        <RadioButton Margin ="0,15,0,0" Content="Option A" GroupName="two"></RadioButton>
+        <RadioButton Content="Option B" GroupName="two"></RadioButton>
+
+        <Slider x:Name="uxSlider" ValueChanged="uxSlider_ValueChanged"
+           Minimum="0" Maximum="100" TickPlacement="BottomRight" 
+                TickFrequency="5" IsSnapToTickEnabled="True" />
+
+        <ProgressBar x:Name="uxProgressBar" Height="16"></ProgressBar>
+
+        <CheckBox>
+            <TextBlock>
+            Enable feature 
+            <Run Foreground="Red" FontWeight="Bold">Red </Run>
+            <Run Foreground="Green" FontWeight="Bold">Green </Run>
+            <Run Foreground="Blue" FontWeight="Bold">Blue</Run>
+            </TextBlock>
+        </CheckBox>
+    </StackPanel>
+</Window>
