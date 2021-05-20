@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Microsoft.EntityFrameworkCore; // add this
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld
 {
@@ -21,9 +21,10 @@ namespace HelloWorld
         public ComboWindow()
         {
             InitializeComponent();
+
             var sample = new SampleContext();
             sample.User.Load();
-            uxComboBox.ItemsSource = sample.User.Local.ToObservableCollection();
+            uxListBox.ItemsSource = sample.User.Local.ToObservableCollection();
         }
 
         private void uxComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

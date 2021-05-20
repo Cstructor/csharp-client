@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:clr="clr-namespace:System;assembly=System.Runtime" 
+                    xmlns:local="clr-namespace:HelloWorld">
+
+    <clr:String x:Key="ApplicationName">My Hello World Application</clr:String>
+
+    <clr:String x:Key="EnableFeature">Enable feature </clr:String>
+    <clr:String x:Key="RGBRed">Red</clr:String>
+    <clr:String x:Key="RGBGreen">Green</clr:String>
+    <clr:String x:Key="RGBBlue">Blue</clr:String>
+
+
+    <clr:String x:Key="LocalChecked">Local Checko</clr:String>
+    <clr:String x:Key="LocalUnchecked">Local Unchecko</clr:String>
+
+</ResourceDictionary>

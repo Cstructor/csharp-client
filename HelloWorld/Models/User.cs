@@ -5,13 +5,11 @@ namespace HelloWorld.Models
     class User : IDataErrorInfo, INotifyPropertyChanged
     {
         private string name = string.Empty;
-        private string nameError;
-
-        // Exercise 1 - add a passwordErro for password validation
         private string password = string.Empty;
-        private string passwordError;
+        private string nameError;
+        private string passError;
 
-        // Add ToString method
+        // Add ToString method - For Listview
         public override string ToString()
         {
             return name;
@@ -33,6 +31,22 @@ namespace HelloWorld.Models
             }
         }
 
+        public string PassError
+        {
+            get
+            {
+                return passError;
+            }
+            set
+            {
+                if (passError != value)
+                {
+                    passError = value;
+                    OnPropertyChanged("PassError");
+                }
+            }
+        }
+
         public string Name
         {
             get
@@ -43,7 +57,7 @@ namespace HelloWorld.Models
             {
                 if (name != value)
                 {
-                    name = value;
+                   name = value;
                     OnPropertyChanged("Name");
                 }
             }
@@ -64,25 +78,6 @@ namespace HelloWorld.Models
                 }
             }
         }
-        // Exercise 1 - Need a PasswordError Property
-        public string PasswordError
-        {
-            get
-            {
-                return passwordError;
-            }
-
-            set
-            {
-                if (passwordError != value)
-                {
-                    passwordError = value;
-                    OnPropertyChanged("PasswordError");
-                }
-            }
-        }
-
-
 
         // IDataErrorInfo interface
         public string Error
@@ -98,13 +93,13 @@ namespace HelloWorld.Models
         public string this[string columnName]
         {
             get
-            {
-                NameError = "";
+            {               
+               
                 switch (columnName)
                 {
                     case "Name":
                         {
-                            NameError = "";
+                            NameError = ""; // reset where it needs to be
                             if (string.IsNullOrEmpty(Name))
                             {
                                 NameError = "Name cannot be empty.";
@@ -113,30 +108,27 @@ namespace HelloWorld.Models
                             {
                                 NameError = "Name cannot be longer than 12 characters.";
                             }
-
                             return NameError;
+
                         }
-                    case "Password": // Exercise 1 - password validation message lable
+
+                    case "Password":
                         {
-                            PasswordError = "";
+                            PassError = ""; // reset where it needs to be
                             if (string.IsNullOrEmpty(Password))
                             {
-                                PasswordError = "Password cannot be empty.";
+                                PassError = "Password cannot be empty.";
                             }
                             if (Password.Length > 12)
                             {
-                                PasswordError = "Password cannot be longer than 12 characters.";
+                                PassError = "Password cannot be longer than 12 characters.";
                             }
-
-                            return PasswordError;
-
+                            
+                            return PassError;
                         }
-                        
-                } // end of switch statement
-
-                return null;
-
-            } // end of get
+                }
+                return null; 
+            }
         }
 
         // INotifyPropertyChanged interface
@@ -144,7 +136,7 @@ namespace HelloWorld.Models
 
         protected void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null) // when a trigger happens
+            if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }

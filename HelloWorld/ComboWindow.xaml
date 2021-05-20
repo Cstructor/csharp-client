@@ -7,36 +7,28 @@
         mc:Ignorable="d"
         Title="ComboWindow" Height="450" Width="800">
     <StackPanel>
-        <!--Exercise to use ListBox-->
-        <ListBox x:Name="uxComboBox"
+        <ListBox x:Name="uxListBox" Height="50"
                 DisplayMemberPath="UserName"
-                SelectionChanged="uxComboBox_SelectionChanged" 
-                 Background="Beige" Height="50"/>
-        
-        <!--Modify to add user age into your List-->
+                SelectionChanged="uxComboBox_SelectionChanged" Background="#FFF0C2C2" />
+
         <Grid x:Name="uxGrid">
+            <!-- This is for definition of infrastructure-->
             <Grid.RowDefinitions>
-                
                 <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
-                
                 <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
-                
                 <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="20"></RowDefinition>
-            
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Text="User Name:" Background="Azure"/>
+            <!--This is for the control usage -->
+            <TextBlock Grid.Row="0" Text="User Name:" />
             <TextBox Grid.Row="1" Text="{Binding UserName}"  />
-            
-            <TextBlock Grid.Row="2" Text="Password:" Background="Azure" />
+            <TextBlock Grid.Row="2" Text="Password:" Background="AliceBlue" />
             <TextBox Grid.Row="3" Text="{Binding UserPassword}"/>
-            
-            <TextBlock Grid.Row="4" Text="Age:" Background="Azure"/>
+            <TextBlock Grid.Row="4" Text="Age:" Background="AliceBlue" />
             <TextBox Grid.Row="5" Text="{Binding UserAge}"/>
-
         </Grid>
 
     </StackPanel>

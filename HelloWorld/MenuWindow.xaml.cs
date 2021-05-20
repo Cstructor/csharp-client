@@ -20,17 +20,6 @@ namespace HelloWorld
         public MenuWindow()
         {
             InitializeComponent();
-            uxContainer.DataContext = this;
-        }
-
-        // Exercise 3 under Menu
-        // Note: if this returns false the MenuItem is disabled
-        public bool IsFileNewActive //Note: we bind to this function in xaml
-        {
-            get
-            {
-                return false; // false sets it to disabled
-            }
         }
 
 
@@ -42,17 +31,14 @@ namespace HelloWorld
         {
             Close();
         }
-        
-        // Exercise 1: For Toolbar - add a button to close
-        private void uxClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close(); // belongs to toolbar button
-        }
 
+        // ADD CAN EXECUTE
         // Click Ctrl-N to execute the shortcut.
         private void OnNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             // Set this to false if the New command is not available
+            //e.CanExecute = true;
+            // NOTE: if set to false instead of true, it will disable the "New"
             e.CanExecute = false;
         }
     }

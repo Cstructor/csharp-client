@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.EntityFrameworkCore; // add this on top
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld
 {
@@ -21,31 +21,34 @@ namespace HelloWorld
     /// </summary>
     public partial class MainWindow : Window
     {
-        // add a call to User class
         private Models.User user = new Models.User();
         public MainWindow()
         {
             InitializeComponent();
-            //uxName.DataContext = user; 
-            //uxNameError.DataContext = user;
+            //uxName.DataContext = user;
+            //uxNameError.wDataContext = user;
+
             uxContainer.DataContext = user;
 
-            // the new code to connect to entity framework - database
             var sample = new SampleContext();
             sample.User.Load();
             var users = sample.User.Local.ToObservableCollection();
             uxList.ItemsSource = users;
-
         }
 
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
-            // for Exercise 2
-            MessageBox.Show("Submitting password: " + uxPasswordBox.Password);
+            int x = 1;
+            x = x / (x - 1); // Induce a DivideByZeroException
+
+            MessageBox.Show("Submitting password:" + uxPassword.Text);
+
             var window = new SecondWindow();
             Application.Current.MainWindow = window;
             Close();
             window.Show();
         }
+
+        
     }
 }

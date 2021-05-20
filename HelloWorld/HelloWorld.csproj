@@ -7,22 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="images\wpf-menus-new.png" />
+    <None Remove="Icon\wpf-menus-new.png" />
     <None Remove="images\wpf-world.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.2">
+    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="2.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
   <ItemGroup>
-    <Resource Include="images\ic_thumb_up_black_24dp_2x.png">
-      
-</Resource>
-    <Resource Include="images\wpf-menus-new.png" />
+    <Resource Include="Icon\wpf-menus-new.png" />
     <Resource Include="images\wpf-world.png" />
   </ItemGroup>
 

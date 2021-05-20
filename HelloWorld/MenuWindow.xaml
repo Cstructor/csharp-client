@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
         Title="MenuWindow" Height="450" Width="800">
+    
     <Window.CommandBindings>
-        <CommandBinding Command="New" CanExecute="OnNew_CanExecute" 
-                        Executed="OnNew_Click" />
+        <CommandBinding Command="New" CanExecute="OnNew_CanExecute" Executed="OnNew_Click" />
     </Window.CommandBindings>
 
-    <!--Exercise 2 uner Menu - use Window.Context Menu allows 
-    to click anywhere on the window for it to appear-->
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Menu item 1" />
@@ -21,32 +19,30 @@
             <MenuItem Header="Menu item 3" />
         </ContextMenu>
     </Window.ContextMenu>
-
-    <StackPanel x:Name="uxContainer">
+    
+    <StackPanel>
         <Menu>
+           
             <MenuItem Header="_File">
-                <!--Add an icon next to New in Menu and 
-                also bind to IsFileNewActive to enable or diable the MenuItem-->
-                <MenuItem Header="_New" Click="OnNew_Click" 
-                          IsEnabled="{Binding IsFileNewActive}">
+
+                <MenuItem Header="_New" Click="OnNew_Click">
                     <MenuItem.Icon>
-                        <Image Source="/images/wpf-menus-new.png" />
+                        <Image Source="/icon/wpf-menus-new.png" />
                     </MenuItem.Icon>
+
                 </MenuItem>
+                
                 <MenuItem Header="_Open"/>
                 <Separator/>
                 <MenuItem Header="E_xit" Click="OnClose_Click"/>
             </MenuItem>
             <MenuItem Header="_Edit"/>
             <MenuItem Header="_Help"/>
-
         </Menu>
-
-        <ToolBarTray>
+         <ToolBarTray>
             <ToolBar>
                 <Button Command="New" Content="New" Click="OnNew_Click"/>
-                <!--Exercise 1 - Add a close button -->
-                <Button x:Name ="uxClose" Content="Close" Click="uxClose_Click"/>
+                <Button x:Name="uxClose" Content="Close" Click="OnClose_Click"/>
                 <Button Content="Copy"/>
                 <Button Content="Paste"/>
             </ToolBar>
@@ -60,6 +56,8 @@
                 </ComboBox>
             </ToolBar>
         </ToolBarTray>
+
+
 
         <Button Content="Click Me">
             <Button.ContextMenu>

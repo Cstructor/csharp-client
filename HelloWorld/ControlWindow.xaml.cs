@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 using System.Diagnostics;
 
 namespace HelloWorld
@@ -25,11 +26,15 @@ namespace HelloWorld
 
         private void uxLocal_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Local Checked");
+            // add resources
+            var cmsg = Application.Current.FindResource("LocalChecked").ToString();
+            MessageBox.Show(cmsg);
         }
         private void uxLocal_Unchecked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Local Unchecked");
+            // add resources
+            var msg = Application.Current.FindResource("LocalUnchecked").ToString();
+            MessageBox.Show(msg);
         }
 
         private void uxNavigator_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)

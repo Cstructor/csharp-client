@@ -20,27 +20,22 @@ namespace HelloWorld
         public StatusWindow()
         {
             InitializeComponent();
-            uxProgressBar.Maximum = 100; // Set the maximum
-            
-            // Exercise 1 - We need to set the Progress bar to allowed Max Length
-            uxProgressBar.Maximum = uxTextEditor.MaxLength;
+
+            uxProgressBar.Maximum = uxTextEditor.MaxLength; // Set the maximum
         }
 
         private void uxTextEditor_SelectionChanged(object sender, RoutedEventArgs e)
         {
             int row = uxTextEditor.GetLineIndexFromCharacterIndex(uxTextEditor.CaretIndex);
+
             int col = uxTextEditor.CaretIndex - uxTextEditor.GetCharacterIndexFromLineIndex(row);
+
             uxStatus.Text = "Line " + (row + 1) + ", Char " + (col + 1);
 
-            // Exercise 1 - Set the Progress Bar
-            uxProgressBar.Value = uxTextEditor.Text.Length;
+            uxProgressBar.Value = uxTextEditor.Text.Length; // Set the progressbar
 
-            // Exercise 1 (cont.) - calculate the percentage
             int percentage = (100 * uxTextEditor.Text.Length) / uxTextEditor.MaxLength;
-
-            // Exercise 1 (cont.) - show the percentage string on the bar
             uxPercentComplete.Text = string.Format("{0}%", percentage);
-
 
         }
     }

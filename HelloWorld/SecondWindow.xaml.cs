@@ -20,6 +20,7 @@ namespace HelloWorld
         public SecondWindow()
         {
             InitializeComponent();
+
             var users = new List<Models.User>();
 
             users.Add(new Models.User { Name = "Dave", Password = "DavePwd" });
@@ -27,7 +28,6 @@ namespace HelloWorld
             users.Add(new Models.User { Name = "Lisa", Password = "LisaPwd" });
 
             uxList.ItemsSource = users;
-
         }
     }
 }

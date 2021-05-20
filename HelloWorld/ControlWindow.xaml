@@ -6,50 +6,44 @@
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
         Title="ControlWindow" Height="450" Width="800">
+
     <Window.Background>
-        <ImageBrush ImageSource="/images/wpf-world.png" Opacity="0.1"/>
+        <ImageBrush ImageSource="/Icon/wpf-menus-new.png" />
         <!-- Pick any image that you have-->
     </Window.Background>
-    
     <StackPanel>
-
-        <CheckBox ToolTip="Click me" Margin ="0,15,0,0" x:Name="uxLocal" Content="Local" 
-                  Checked="uxLocal_Checked" Unchecked="uxLocal_Unchecked">
+        <CheckBox ToolTip="Click me">
+            <TextBlock>     
+              <Run Text="{StaticResource EnableFeature}"></Run>
+              <Run Foreground="Red" FontWeight="Bold" Text="{StaticResource RGBRed}"></Run>
+              <Run Foreground="Green" FontWeight="Bold" Text="{StaticResource RGBGreen}"></Run>
+              <Run Foreground="Blue" FontWeight="Bold" Text="{StaticResource RGBBlue}"></Run>
+            </TextBlock>
+        </CheckBox>
+        <CheckBox x:Name="uxLocal" Content="Local" Checked="uxLocal_Checked" Unchecked="uxLocal_Unchecked">
         </CheckBox>
 
-        <TextBlock Margin ="0,15,0,0">
-        <Hyperlink  x:Name="uxNavigator" 
-                  NavigateUri="http://www.google.com" 
+        <TextBlock>
+    <Hyperlink x:Name="uxNavigator" NavigateUri="http://www.google.com" 
                   RequestNavigate="uxNavigator_RequestNavigate">Google.com</Hyperlink>
 
-        <Hyperlink 
-            NavigateUri="http://www.microsoft.com" 
-            RequestNavigate="uxNavigator_RequestNavigate">Microsoft.com</Hyperlink>
+    <Hyperlink NavigateUri="http://www.microsoft.com" 
+                RequestNavigate="uxNavigator_RequestNavigate">Microsoft.com</Hyperlink>
         </TextBlock>
-        <!--Exercise 1 border around radio buttons-->
-        <Border Background="LightCyan" BorderBrush="Gainsboro" BorderThickness="1">
+        
+        <Border BorderBrush="Gray" BorderThickness="1">
             <StackPanel>
-            <RadioButton Margin ="0,15,0,0" Content="Option 1" GroupName="one"></RadioButton>
-            <RadioButton Content="Option 2" GroupName="one"></RadioButton>
+               <RadioButton Content="Option 1" GroupName="one"></RadioButton>
+               <RadioButton Content="Option 2" GroupName="one"></RadioButton>
             </StackPanel>
         </Border>
         
         <RadioButton Margin ="0,15,0,0" Content="Option A" GroupName="two"></RadioButton>
         <RadioButton Content="Option B" GroupName="two"></RadioButton>
 
-        <Slider x:Name="uxSlider" ValueChanged="uxSlider_ValueChanged"
-           Minimum="0" Maximum="100" TickPlacement="BottomRight" 
-                TickFrequency="5" IsSnapToTickEnabled="True" />
+        <Slider x:Name="uxSlider" Margin ="0,15,0,0" ValueChanged="uxSlider_ValueChanged"
+           Minimum="0" Maximum="100" TickPlacement="BottomRight" TickFrequency="5" IsSnapToTickEnabled="True"/>
 
-        <ProgressBar x:Name="uxProgressBar" Height="16"></ProgressBar>
-
-        <CheckBox>
-            <TextBlock>
-            Enable feature 
-            <Run Foreground="Red" FontWeight="Bold">Red </Run>
-            <Run Foreground="Green" FontWeight="Bold">Green </Run>
-            <Run Foreground="Blue" FontWeight="Bold">Blue</Run>
-            </TextBlock>
-        </CheckBox>
+        <ProgressBar x:Name="uxProgressBar" Value="{Binding ElementName=uxSlider,Path=Value}" Height="16"></ProgressBar>
     </StackPanel>
 </Window>
