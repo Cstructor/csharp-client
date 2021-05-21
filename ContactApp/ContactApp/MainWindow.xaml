@@ -13,5 +13,47 @@
                 </MenuItem>                
             </MenuItem>
         </Menu>
+        <ListView x:Name="uxContactList" Height="200">
+            <!---->
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
+                    <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click" />
+                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+
+            <ListView.View>
+                <GridView>
+
+                    <!--sorting name-->
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Width="100">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Name" Tag="Name" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+
+                    <!--sorting email-->
+                    <GridViewColumn DisplayMemberBinding="{Binding Email}" Width="100">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Email" Tag="Email" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn DisplayMemberBinding="{Binding PhoneType}" Header="Phone Type" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding PhoneNumber}" Header="Phone Number" Width="100" />
+                    
+                    <!--sorting age-->
+                    <GridViewColumn DisplayMemberBinding="{Binding Age}" Width="100">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Age" Tag="Age" Click="GridViewColumnHeader_Click" />
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+
     </StackPanel>
 </Window>

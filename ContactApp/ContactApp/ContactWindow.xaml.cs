@@ -36,7 +36,11 @@ namespace ContactApp
             }
 
             Contact.PhoneNumber = uxPhoneNumber.Text;
-            Contact.Age = 0;
+            
+            //Contact.Age = 0;
+            //Exercise 1 - connect age to slider (name is uxAgeSlider from Xaml)
+            Contact.Age = (int)uxAgeSlider.Value;
+            
             Contact.Notes = uxNotes.Text;
             Contact.CreatedDate = DateTime.Now;
 

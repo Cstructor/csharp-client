@@ -31,12 +31,20 @@
 
         <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Phone Number:</TextBlock>
         <TextBox x:Name="uxPhoneNumber" Grid.Column="1" Grid.Row="2"></TextBox>
-
+        
         <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Phone Type:</TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
             <RadioButton x:Name="uxHome" IsChecked="true">Home</RadioButton>
             <RadioButton x:Name="uxMobile">Mobile</RadioButton>
         </StackPanel>
+        
+        <!--Exercise 1 to add age and slider-->
+        <TextBlock Grid.Row="4" HorizontalAlignment="Right">Age:</TextBlock>
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <TextBlock x:Name="uxAge" Text="{Binding ElementName=uxAgeSlider, Path=Value}"/>
+            <Slider x:Name="uxAgeSlider"  IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
+        </StackPanel>
+
 
         <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Notes:</TextBlock>
         <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="5" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
