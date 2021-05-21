@@ -6,6 +6,7 @@ using System.Windows.Controls; // added
 using System.Windows.Documents; //added
 
 namespace ContactApp
+
 {
     public partial class MainWindow : Window
     {

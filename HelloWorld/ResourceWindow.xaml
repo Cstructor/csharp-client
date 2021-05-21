@@ -19,6 +19,7 @@
 
     <StackPanel>
         <TextBox x:Name="uxName" Style="{StaticResource Input}" />
+        <!--Exercise to add a password-->
         <TextBox x:Name="uxPassword" Style="{StaticResource PassInput}" />
     </StackPanel>
     
