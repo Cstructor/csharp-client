@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:clr="clr-namespace:System;assembly=System.Runtime"
              xmlns:local="clr-namespace:HelloWorld"
-             StartupUri="ResourceWindow.xaml">
+             StartupUri="ControlWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

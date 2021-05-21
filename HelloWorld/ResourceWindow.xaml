@@ -8,7 +8,7 @@
         Title="{StaticResource ApplicationName}" Height="450" Width="800">
     <Window.Resources>
         <!--Test with changing the Input to Xput-->
-        <Style TargetType="TextBox" x:Key="Input">
+        <Style TargetType="TextBox" x:Key="xInput">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Background" Value="Beige"/>
             <Setter Property="FontFamily" Value="Arial"/>
