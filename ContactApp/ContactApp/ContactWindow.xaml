@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ContactApp"
         mc:Ignorable="d"
         Title="ContactWindow" Width="300" Height="240"
-        FocusManager.FocusedElement="{Binding ElementName=uxName}">
+        FocusManager.FocusedElement="{Binding ElementName=uxName}" Loaded="Window_Loaded">
 
     <Grid x:Name="uxGrid">
         <Grid.ColumnDefinitions>
@@ -23,14 +23,20 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Name:</TextBlock>
-        <TextBox x:Name="uxName" Grid.Column="1" Grid.Row="0"></TextBox>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+            <TextBox x:Name="uxName" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"></TextBox>
+            <TextBlock x:Name="uxNameError" Text="{Binding NameError, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </StackPanel>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Email:</TextBlock>
-        <TextBox x:Name="uxEmail" Grid.Column="1" Grid.Row="1"></TextBox>
+        <!--Exercise 1 under validation-->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+            <TextBox x:Name="uxEmail" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"></TextBox>
+            <TextBlock x:Name="uxEmailError" Text="{Binding EmailError, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </StackPanel>
+
 
         <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Phone Number:</TextBlock>
-        <TextBox x:Name="uxPhoneNumber" Grid.Column="1" Grid.Row="2"></TextBox>
+        <TextBox x:Name="uxPhoneNumber" Text="{Binding PhoneNumber}" Grid.Column="1" Grid.Row="2"></TextBox>
         
         <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Phone Type:</TextBlock>
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
@@ -42,12 +48,12 @@
         <TextBlock Grid.Row="4" HorizontalAlignment="Right">Age:</TextBlock>
         <StackPanel Grid.Row="4" Grid.Column="1">
             <TextBlock x:Name="uxAge" Text="{Binding ElementName=uxAgeSlider, Path=Value}"/>
-            <Slider x:Name="uxAgeSlider"  IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
+            <Slider x:Name="uxAgeSlider"  Value="{Binding Age}" IsSnapToTickEnabled="true" Minimum="1" Maximum="120"/>
         </StackPanel>
 
 
         <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Notes:</TextBlock>
-        <TextBox x:Name="uxNotes" Grid.Column="1" Grid.Row="5" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+        <TextBox x:Name="uxNotes" Text="{Binding Notes}" Grid.Column="1" Grid.Row="5" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right">
             <Button x:Name="uxSubmit"  MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Add</Button>

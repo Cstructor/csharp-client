@@ -45,6 +45,27 @@ namespace ContactApp
             //uxContactList.ItemsSource = uiContactModelList;
         }
 
+        // add this method for doing updates
+        private void uxFileChange_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ContactWindow();
+            
+            // Exercise 2 for update - fix this to call on Clone()
+            window.Contact = selectedContact.Clone();
+
+            if (window.ShowDialog() == true)
+            {
+                App.ContactRepository.Update(window.Contact.ToRepositoryModel());
+                LoadContacts();
+            }
+        }
+
+        private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileChange.IsEnabled = (selectedContact != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+        }
+
         private void uxFileNew_Click(object sender, RoutedEventArgs e)
         {
             var window = new ContactWindow();
@@ -62,14 +83,7 @@ namespace ContactApp
 
                 LoadContacts();
             }
-        }
-
-        //
-        private void uxFileChange_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-       
+        }        
 
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -112,6 +126,14 @@ namespace ContactApp
         private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
         {
             uxFileDelete.IsEnabled = (selectedContact != null);
+        }
+
+        // Exercise 1 - Update double-clicking on a contact will bring up the update Contact window
+        private void uxContactList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // call on this FileChange Click function with two null parameters
+            uxFileChange_Click(sender, null);
+
         }
     }
 }

@@ -11,10 +11,15 @@
             <MenuItem Header="_File">
                 <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"/>
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
+                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" 
+  Loaded="uxFileChange_Loaded" />
 
             </MenuItem>
         </Menu>
-        <ListView x:Name="uxContactList" Height="200" SelectionChanged="uxContactList_SelectionChanged">
+        <!--Exercise 1 for update use double click to have Contact Window to pop-->
+        <ListView x:Name="uxContactList" Height="200" 
+                  SelectionChanged="uxContactList_SelectionChanged" 
+                  MouseDoubleClick="uxContactList_MouseDoubleClick">
             <!---->
             <ListView.ContextMenu>
                 <ContextMenu>
