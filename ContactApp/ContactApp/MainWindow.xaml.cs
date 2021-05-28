@@ -14,6 +14,8 @@ namespace ContactApp
         private GridViewColumnHeader listViewSortCol = null; // added for exercise
         private SortAdorner listViewSortAdorner = null;      // added for exercise
 
+        private ContactModel selectedContact;
+
 
         public MainWindow()
         {
@@ -67,9 +69,7 @@ namespace ContactApp
         {
         }
 
-        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
-        {
-        }
+       
 
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -92,5 +92,26 @@ namespace ContactApp
             uxContactList.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
+        // Important Method: detect if selection has been made
+        private void uxContactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedContact = (ContactModel)uxContactList.SelectedValue;
+
+            // Exercise 1 under Delete - fix the context menu
+            uxContextFileDelete.IsEnabled = (selectedContact != null);
+
+        }
+
+        private void uxFileDelete_Click(object sender, RoutedEventArgs e)
+        {
+            App.ContactRepository.Remove(selectedContact.Id);
+            selectedContact = null;
+            LoadContacts();
+        }
+
+        private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileDelete.IsEnabled = (selectedContact != null);
+        }
     }
 }

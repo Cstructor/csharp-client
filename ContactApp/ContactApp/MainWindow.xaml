@@ -9,17 +9,19 @@
     <StackPanel Orientation="Vertical">
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click">                    
-                </MenuItem>                
+                <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"/>
+                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
+
             </MenuItem>
         </Menu>
-        <ListView x:Name="uxContactList" Height="200">
+        <ListView x:Name="uxContactList" Height="200" SelectionChanged="uxContactList_SelectionChanged">
             <!---->
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
                     <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click" />
-                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" />
+                    <!--Exercise 1: Delete - start with menu being disabled as it loads up-->
+                    <MenuItem x:Name="uxContextFileDelete" IsEnabled="False" Header="_Delete" Click="uxFileDelete_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
 
