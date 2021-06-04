@@ -22,7 +22,14 @@ namespace HelloWorld.Controllers
         [HttpPost]
         public IActionResult RsvpForm(Models.GuestResponse guestResponse)
         {
-            return View("Thanks", guestResponse);
+            if (ModelState.IsValid)
+            {
+                return View("Thanks", guestResponse);
+            }
+            else
+            {
+                return View(guestResponse);
+            }
         }
 
     }

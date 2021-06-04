@@ -30,6 +30,8 @@ namespace HelloWorld
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles(); // Add this
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
