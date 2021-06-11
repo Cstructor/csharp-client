@@ -20,6 +20,9 @@ namespace HelloWorld
             .AddMvc()
             // Be explicit in what version MVC should be using
             .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+
+            //DI Registeration
+            services.AddSingleton<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
