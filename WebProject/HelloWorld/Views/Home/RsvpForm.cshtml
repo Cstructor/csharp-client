@@ -7,14 +7,16 @@
 <!DOCTYPE html>
 
 <html>
+<!--Exercise 3 Validation-->
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <title>RsvpForm</title>
 </head>
 
 <body>
-    <h4>GuestResponse</h4>
+    <!--Exercise 4 Validation-->
+    <h4 class="text-center">GuestResponse</h4>
     <hr />
 
     <div class="row">
@@ -26,7 +28,7 @@
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group">
                     <label asp-for="Email" class="control-label"></label>
                     <input asp-for="Email" class="form-control" />
@@ -51,7 +53,8 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <!--Exercise 5 Validation-->
+                    <input type="submit" value="Save" class="btn btn-success" />
                 </div>
             </form>
         </div>
