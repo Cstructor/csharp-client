@@ -15,6 +15,12 @@ namespace HelloWorld
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // Session service
+            services.AddSession();
+
+            // Caching service
+            services.AddMemoryCache();
+
             services
             // Add FULL MVC handling (Do not call AddMvcCore())
             .AddMvc()
@@ -28,6 +34,8 @@ namespace HelloWorld
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSession();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@{
+    int count = 0;
+
+    var myCount = Context.Session.GetInt32("MyCount");
+    if (myCount != null)
+    {
+        count = myCount.Value;
+        count++;
+    }
+
+    // Create the MyCount session variable
+    Context.Session.SetInt32("MyCount", count);
+}
+<p>Session Count: @Context.Session.GetInt32("MyCount")</p>

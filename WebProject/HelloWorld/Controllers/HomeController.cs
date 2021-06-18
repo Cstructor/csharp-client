@@ -9,6 +9,12 @@ namespace HelloWorld.Controllers
 {
     public class HomeController : Controller
     {
+        // Add IncrementCount for Session
+        public PartialViewResult IncrementCount()
+        {
+            return PartialView();
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -50,6 +56,7 @@ namespace HelloWorld.Controllers
 
 
         // Products Action - Collection
+        [ResponseCache(Duration = 15, Location = ResponseCacheLocation.Any)]
         public IActionResult Products()
         {
             //var products = new Product[]
