@@ -1,0 +1,26 @@
+﻿@model string
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>GetCookie</title>
+</head>
+<body>
+    <!--Exercise Get Cookie-->
+    @if (Model == null)
+    {
+        @:Cookie: Not Set
+    }
+    else
+    {
+        <p>Cookie: @Model</p>
+    }
+
+</body>
+</html>

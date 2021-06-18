@@ -10,6 +10,27 @@ namespace HelloWorld.Controllers
 {
     public class HomeController : Controller
     {
+        // Setting a Cookie - Creating it
+        public IActionResult SetCookie()
+        {
+            var cookieOptions = new CookieOptions
+            {
+                Expires = DateTime.Now.AddMinutes(1)
+            };
+
+            // Add the cookie to the response to send it to the browser
+            Response.Cookies.Append("MyCookie", "myUserName", cookieOptions);
+            return View();
+        }
+        // Getting a Cookie - Reading it
+        public IActionResult GetCookie()
+        {
+            var cookieValue = Request.Cookies["MyCookie"];
+
+            // This needs to be an object otherwise it will treat it as a viewName
+            return View((object)cookieValue);
+        }
+
         // Session Exercise - Add a DisplayLoginName Action
         public PartialViewResult DisplayLoginName()
         {

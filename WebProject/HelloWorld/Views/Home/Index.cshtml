@@ -31,20 +31,30 @@
 
         <h3>And you're invited</h3>
 
+        <!--Add a set cookie button-->
         <div class="btn btn-success">
-            @Html.ActionLink("RSVP Now", "RsvpForm")
+            <a asp-action="SetCookie">Set Cookie</a>
         </div>
 
-        <!--Added a button to go to Product-->
+        <!--Add a get cookie button-->
         <div class="btn btn-success">
-            @Html.ActionLink("My Product", "Product")
+            <a asp-action="GetCookie">Get Cookie</a>
         </div>
 
-        <!--Added a button to go to Products-->
-        <div class="btn btn-success">
-            @Html.ActionLink("My List of Products", "Products")
-        </div>
+            <div class="btn btn-success">
+                @Html.ActionLink("RSVP Now", "RsvpForm")
+            </div>
 
-    </div>
+            <!--Added a button to go to Product-->
+            <div class="btn btn-success">
+                @Html.ActionLink("My Product", "Product")
+            </div>
+
+            <!--Added a button to go to Products-->
+            <div class="btn btn-success">
+                @Html.ActionLink("My List of Products", "Products")
+            </div>
+
+        </div>
 </body>
 </html>
