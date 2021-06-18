@@ -4,11 +4,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HelloWorld.Models;
+using Microsoft.AspNetCore.Http; // Add for Session Exercise
 
 namespace HelloWorld.Controllers
 {
     public class HomeController : Controller
     {
+        // Session Exercise - Add a DisplayLoginName Action
+        public PartialViewResult DisplayLoginName()
+        {
+            return PartialView();
+        }
+
+        // Session Exercise - Get
+        [HttpGet]
+        public IActionResult Login() // right click and add a view
+        {
+            return View();
+        }
+
+        // Session Exercise - Get
+        [HttpPost]
+        public IActionResult Login(LoginModel loginModel)
+        {
+            HttpContext.Session.SetString("UserName", loginModel.UserName);
+            return RedirectToAction("Index");
+        }
+
+        // Session Logoff Action - redirects you back to Index Page
+        public IActionResult Logoff()
+        {
+            HttpContext.Session.Remove("UserName");
+            return RedirectToAction("Index");
+        }
+
+
         // Add IncrementCount for Session
         public PartialViewResult IncrementCount()
         {
